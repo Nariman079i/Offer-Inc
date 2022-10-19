@@ -75,8 +75,10 @@ WSGI_APPLICATION = 'Offer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd2qhrpv26gcfvp',
+        'USER': 'gfgrtxpqxvbtua',
+        'PASSWORD':'2b9714768bbe91417b42f660f43bdb3b90af0e3e52dfa823fbb8886a3d50d73e'
     }
 }
 
