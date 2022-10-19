@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main.apps.MainConfig'
 ]
 
 MIDDLEWARE = [
@@ -75,10 +76,13 @@ WSGI_APPLICATION = 'Offer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'd2qhrpv26gcfvp',
         'USER': 'gfgrtxpqxvbtua',
-        'PASSWORD':'2b9714768bbe91417b42f660f43bdb3b90af0e3e52dfa823fbb8886a3d50d73e'
+        'PASSWORD':'2b9714768bbe91417b42f660f43bdb3b90af0e3e52dfa823fbb8886a3d50d73e',
+        'HOST':'ec2-54-76-43-89.eu-west-1.compute.amazonaws.com',
+        'PORT':'5432',
+
     }
 }
 
