@@ -6,4 +6,4 @@ from .models import *
 class IndustrySerializer(ModelSerializer):
     class Meta:
         model = Industry
-        fields = ('title',)
+        fields = '__all__'
