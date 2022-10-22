@@ -77,8 +77,9 @@ class Region(Model):
 
 
 class Locate(Model):
-    region_id = OneToOneField(Region, on_delete=CASCADE, null=True)
+    region_id = ForeignKey(Region, on_delete=CASCADE, null=True)
     title = CharField(max_length=255, null=True)
+    population = IntegerField(null=True)
 
     def __str__(self):
         return self.title

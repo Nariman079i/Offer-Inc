@@ -20,5 +20,6 @@ from django.conf.urls.static import static
 from users.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/data/industries/', IndustriesApiList.as_view())
+    path('api/v1/industries/<str:string>/<int:count>', IndustriesApiList.as_view()),
+    path('api/v1/locates/<str:string>/<int:count>', LocateApiList.as_view())
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
