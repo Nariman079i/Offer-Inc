@@ -76,7 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Offer.wsgi.application'
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.UserData'
 CORS_ALLOW_ALL_ORIGINS = True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

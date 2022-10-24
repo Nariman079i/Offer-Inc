@@ -3,26 +3,27 @@ from django.contrib.auth.models import *
 from .admin import *
 
 
-class User(AbstractUser):
-    call_number = CharField(max_length=255, null=True)
-    password = CharField(max_length=255, null=True)
+
 
 
 class Expirience(Model):
-    position = CharField(max_length=60)
+
+    position = CharField(max_length=60, null=True)
     specialization_id = ForeignKey('Specialization', on_delete=CASCADE, null=True)
     start_work = DateField(null=True)
     end_work = DateField(null=True)
     about_company = TextField(null=True)
 
 
-class UserData(Model):
-    user_id = OneToOneField(User, on_delete=CASCADE, related_name='user', null=True)
+class UserData(AbstractUser):
+    username = CharField(max_length=255,null=False, default='',unique=True)
+    email = EmailField(max_length=255, null=False, default='', unique=True)
+    password = CharField(max_length=255, null=False, default='')
     img = ImageField(upload_to='img/', null=True)
     first_name = CharField(max_length=60, null=True),
     last_name = CharField(max_length=60, null=True),
     gender = CharField(max_length=20, choices=(('m', 'Mужской'), ('w', 'Женский')), null=True)
-    call_number = OneToOneField(User, on_delete=CASCADE, related_name='number', null=True)
+    call_number = CharField(max_length=12 , null=True)
     mail = EmailField(max_length=255, null=True)
     inn = CharField(max_length=12, null=True)
     person_site = CharField(max_length=255, null=True)
@@ -77,12 +78,12 @@ class Region(Model):
 
 
 class Locate(Model):
-    region_id = ForeignKey(Region, on_delete=CASCADE, null=True)
-    title = CharField(max_length=255, null=True)
+    region = ForeignKey(Region, on_delete=CASCADE, null=True)
+    locality = CharField(max_length=255, null=True)
     population = IntegerField(null=True)
 
     def __str__(self):
-        return self.title
+        return self.locality
 
 
 model_tables = [User, Expirience, UserData, Company, Skill, Specialization, Industry, Region, Locate]
