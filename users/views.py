@@ -15,10 +15,10 @@ class IndustriesApiList(ListAPIView):
 class LocateApiList(ListAPIView):
 
     def get_queryset(self):
-        count = self.kwargs['count']
+
         string_ = self.kwargs['string']
 
-        return Locate.objects.filter(title__contains=string_).order_by('-title').order_by("-population")[:count]
+        return Locate.objects.filter(title__contains=string_).order_by('-title').order_by("-population")[:10]
 
     serializer_class = LocateSerializer
 
