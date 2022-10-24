@@ -15,7 +15,7 @@ class LocateModel:
 
 
 class LocateSerializerNoModel(serializers.Serializer):
-    region = serializers.IntegerField()
+    region = serializers.CharField(source='region_id.title', max_length=255)
     title = serializers.CharField(max_length=255)
     population = serializers.IntegerField()
 
