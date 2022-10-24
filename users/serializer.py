@@ -17,4 +17,4 @@ class LocateSerializer(serializers.ModelSerializer):
     region = serializers.ReadOnlyField(source='region.title')
     class Meta:
         model = Locate
-        fields = ['id','region', 'title', 'population']
+        fields = ['id','region', 'locality', 'population']

@@ -18,7 +18,7 @@ class LocateApiList(ListAPIView):
 
         string_ = self.kwargs['string']
 
-        return Locate.objects.filter(title__contains=string_).order_by('-title').order_by("-population")[:10]
+        return Locate.objects.filter(locality__contains=string_).order_by('-locality').order_by("-population")[:10]
 
     serializer_class = LocateSerializer
 
