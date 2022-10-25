@@ -18,14 +18,14 @@ class UserData(AbstractUser):
     img = ImageField(verbose_name='Фото профиля', upload_to='img/', null=True)
     first_name = CharField(verbose_name='Имя',max_length=60, null=True),
     last_name = CharField(verbose_name='Фамилия' , max_length=60, null=True),
-    gender = CharField(verbose_name='Пол' , max_length=20, choices=(('m', 'Mужской'), ('w', 'Женский')), null=True)
+    gender = CharField(verbose_name='Пол', max_length=20, choices=(('m', 'Mужской'), ('w', 'Женский')), null=True)
     call_number = CharField(verbose_name="Номер телефона", max_length=12, null=True)
     inn = CharField(verbose_name='ИНН', max_length=12, null=True)
     person_site = CharField(verbose_name='Сайт' ,max_length=255, null=True)
     about_me = TextField(verbose_name='Обо мне', max_length=500, null=True)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.username
 
 
 class Company(Model):
@@ -34,7 +34,7 @@ class Company(Model):
     locate = ForeignKey('Locate', on_delete=CASCADE, null=True, verbose_name='Локация')
     call_number = CharField(verbose_name='Номер телефона' ,max_length=12, null=True)
     email = EmailField(verbose_name='Адрес электронной почты' ,max_length=40, null=True)
-    link = SlugField(verbose_name='Сайт компании' ,max_length=255, null=True)
+    link = SlugField(verbose_name='Сайт компании', max_length=255, null=True)
     short_description = TextField(verbose_name='Краткое описание' ,null=True)
     about_company = TextField(verbose_name='Основная информация о компании' ,null=True)
 
