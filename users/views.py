@@ -7,20 +7,17 @@ from .models import *
 from .serializer import *
 from rest_framework.generics import *
 
-class IndustriesApiList(ListAPIView):
 
+class IndustriesApiList(ListAPIView):
     queryset = Industry.objects.all()
     serializer_class = IndustrySerializer
+
 
 class LocateApiList(ListAPIView):
 
     def get_queryset(self):
-
         string_ = self.kwargs['string']
 
-        return Locate.objects.filter(locality__contains=string_).order_by('-locality').order_by("-population")[:10]
+        return Locate.objects.filter(Q(locality__contains=string_) | Q(locality=string_) ).order_by('-locality').order_by("-population")[:20]
 
     serializer_class = LocateSerializer
-
-
-
