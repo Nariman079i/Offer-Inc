@@ -14,6 +14,9 @@ class Experience(Model):
         verbose_name = "Опыт работы"
         verbose_name_plural = "Опыт работы"
 
+    def __str__(self):
+        return f"{self.position} {self.position}"
+
 
 admin.site.register(Experience)
 
@@ -33,7 +36,7 @@ class UserData(AbstractUser):
     about_me = TextField(verbose_name='Обо мне', max_length=500, null=True)
 
     def __str__(self):
-        return self.username
+        return f"{self.first_name} {self.last_name} {self.inn}"
 
     class Meta:
         verbose_name = "Пользователь"
@@ -166,7 +169,8 @@ class CompanyLink(Model):
         verbose_name_plural = "Социальные сети компаний"
 
     def __str__(self):
-        return "Социальные сети пользователя - " + self.user.__str__()
+        return "Социальные сети компании - " + self.company.__str__()
+
 
 admin.site.register(CompanyLink)
 
@@ -176,7 +180,7 @@ class UserSkill(Model):
     skill = ForeignKey(Skill, on_delete=CASCADE)
 
     def __str__(self):
-        return "Социальные сети компании - " + self.user.__str__() + "  |  " + self.skill.__str__()
+        return "Достижение - " + self.user.__str__() + " | " + self.skill.__str__()
 
     class Meta:
         verbose_name = "Достижение пользователя"
@@ -194,6 +198,9 @@ class CoFounder(Model):
         verbose_name = "Соучредитель"
         verbose_name_plural = "Соучредители"
 
+    def __str__(self):
+        return "Соучредитель компании - " + self.company.__str__() + "  ->  " + self.user.__str__()
+
 
 admin.site.register(CoFounder)
 
@@ -201,6 +208,9 @@ admin.site.register(CoFounder)
 class CoCompany(Model):
     company = OneToOneField(Company, on_delete=CASCADE, related_name="MainCompany", verbose_name="Компания")
     co_company = ForeignKey(Company, on_delete=CASCADE, related_name="SubCompany", verbose_name="Партнер")
+
+    def __str__(self):
+        return "Партнёр компании - " + self.company.__str__() + "  ->  " + self.co_company.__str__()
 
     class Meta:
         verbose_name = "Партнер"
@@ -218,6 +228,9 @@ class UserExperience(Model):
         verbose_name = "Опыт работы пользователя"
         verbose_name_plural = "Опыт работы пользователей"
 
+    def __str__(self):
+        return "Опыт работы пользователя" + self.user.__str__() + " " + self.experience.__str__()
+
 
 admin.site.register(UserExperience)
 
@@ -230,6 +243,8 @@ class UserLocation(Model):
         verbose_name = "Локация пользователя"
         verbose_name_plural = "Локации пользователей"
 
+    def __str__(self):
+        return "Опыт работы пользователя" + self.user.__str__() + " " + self.locate.__str__()
+
 
 admin.site.register(UserLocation)
-
