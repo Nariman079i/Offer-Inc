@@ -36,7 +36,8 @@ class UserData(AbstractUser):
         return self.username
 
     class Meta:
-        verbose_name = "Пользователи"
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
 
 
 admin.site.register(UserData)
@@ -143,6 +144,9 @@ class UserLink(Model):
     link_tm = CharField(max_length=255, null=True, verbose_name="Ссылка на Telegram")
     link_in = CharField(max_length=255, null=True, verbose_name="Ссылка на Linkedin")
 
+    def __str__(self):
+        return "Социальные сети пользователя - " + self.user.__str__()
+
     class Meta:
         verbose_name = "Социальные сети пользователя"
         verbose_name_plural = "Социальные сети пользователей"
@@ -161,6 +165,8 @@ class CompanyLink(Model):
         verbose_name = "Социальные сети компании"
         verbose_name_plural = "Социальные сети компаний"
 
+    def __str__(self):
+        return "Социальные сети пользователя - " + self.user.__str__()
 
 admin.site.register(CompanyLink)
 
@@ -170,7 +176,8 @@ class UserSkill(Model):
     skill = ForeignKey(Skill, on_delete=CASCADE)
 
     def __str__(self):
-        return self.user.__str__() + " | " + self.skill.__str__()
+        return "Социальные сети компании - " + self.user.__str__() + "  |  " + self.skill.__str__()
+
     class Meta:
         verbose_name = "Достижение пользователя"
         verbose_name_plural = "Достижения пользователей"
