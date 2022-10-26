@@ -36,7 +36,8 @@ class UserData(AbstractUser):
     about_me = TextField(verbose_name='Обо мне', max_length=500, null=True)
 
     def __str__(self):
-        return f"{self.first_name.__str__()} {self.last_name.__str__()} {self.inn}"
+        return self.username
+        # return f"{self.first_name.__str__()} {self.last_name.__str__()} {self.inn}"
 
     class Meta:
         verbose_name = "Пользователь"
