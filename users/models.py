@@ -15,7 +15,7 @@ class Experience(Model):
         verbose_name_plural = "Опыт работы"
 
     def __str__(self):
-        return f"{self.position} {self.position}"
+        return f"{self.position} {self.specialization}"
 
 
 admin.site.register(Experience)
