@@ -56,6 +56,7 @@ class Company(Model):
 
     class Meta:
         verbose_name = "Компании"
+        verbose_name_plural = "Компании"
 
 
 admin.site.register(Company)
@@ -167,6 +168,8 @@ class UserSkill(Model):
     user = ForeignKey(UserData, on_delete=CASCADE)
     skill = ForeignKey(Skill, on_delete=CASCADE)
 
+    def __str__(self):
+        return self.user
     class Meta:
         verbose_name = "Достижение пользователя"
         verbose_name_plural = "Достижения пользователей"
