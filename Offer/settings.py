@@ -120,6 +120,8 @@ LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
+DATE_FORMAT = 'd/m/y'
+
 USE_I18N = True
 
 USE_TZ = True

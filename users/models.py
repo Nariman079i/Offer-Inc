@@ -1,3 +1,5 @@
+import site
+
 from django.db.models import *
 from django.contrib.auth.models import *
 from .admin import *
@@ -15,7 +17,7 @@ class Experience(Model):
         verbose_name_plural = "Опыт работы"
 
     def __str__(self):
-        return f"{self.position} {self.specialization}"
+        return f"{self.position} | {self.specialization}"
 
 
 admin.site.register(Experience)
@@ -63,7 +65,6 @@ class Company(Model):
     class Meta:
         verbose_name = "Компания"
         verbose_name_plural = "Компании"
-
 
 admin.site.register(Company)
 
