@@ -170,7 +170,7 @@ class UserSkill(Model):
     skill = ForeignKey(Skill, on_delete=CASCADE)
 
     def __str__(self):
-        return self.user + " " + self.skill
+        return self.user.__str__() + " " + self.skill.__str__()
     class Meta:
         verbose_name = "Достижение пользователя"
         verbose_name_plural = "Достижения пользователей"
