@@ -21,7 +21,8 @@ admin.site.register(Experience)
 class UserData(AbstractUser):
     username = CharField(verbose_name='Имя пользователя', max_length=255, null=False, default='', unique=True)
     email = EmailField(verbose_name='Адрес электронной почты', max_length=255, null=False, default='', unique=True)
-    password = CharField(verbose_name='Пароль', max_length=255, null=False, default='')
+    password1 = CharField(verbose_name='Пароль 1', max_length=255, null=False, default='', help_text="Введите пароль")
+    password2 = CharField(verbose_name='Пароль 2', max_length=255, null=False, default='', help_text="Повторите пароль")
     img = ImageField(verbose_name='Фото профиля', upload_to='img/', null=True)
     first_name = CharField(verbose_name='Имя', max_length=60, null=True),
     last_name = CharField(verbose_name='Фамилия', max_length=60, null=True),
@@ -55,7 +56,7 @@ class Company(Model):
         return self.title
 
     class Meta:
-        verbose_name = "Компании"
+        verbose_name = "Компания"
         verbose_name_plural = "Компании"
 
 
@@ -169,7 +170,8 @@ class UserSkill(Model):
     skill = ForeignKey(Skill, on_delete=CASCADE)
 
     def __str__(self):
-        return self.user
+        return self.user['username']
+
     class Meta:
         verbose_name = "Достижение пользователя"
         verbose_name_plural = "Достижения пользователей"
