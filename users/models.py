@@ -63,7 +63,7 @@ admin.site.register(Company)
 
 class Skill(Model):
     title = CharField(verbose_name='Название', max_length=255, null=True)
-    get_date = DateField(verbose_name='Дата получения', null=True)
+    get_date = DateField(verbose_name='Дата получения', null=True, help_text="Формат даты: ДД.ММ.ГГГГ")
     description = TextField(verbose_name='Описание', null=True)
 
     def __str__(self):

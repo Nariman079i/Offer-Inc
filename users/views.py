@@ -22,5 +22,3 @@ class LocateApiList(ListAPIView):
 
     serializer_class = LocateSerializer
 
-
-
