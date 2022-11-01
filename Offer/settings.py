@@ -76,7 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Offer.wsgi.application'
 
-AUTH_USER_MODEL = 'users.UserData'
+
 CORS_ALLOW_ALL_ORIGINS = True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -84,12 +84,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dd2k48801rm8jl',
-        'USER': 'llqpauwqxgiyhj',
-        'PASSWORD':'12aecda24aa9eeae0d3ecabe459ae86b23ac5502fd3128d167b9f98cab75ab27',
-        'HOST':'ec2-52-212-228-71.eu-west-1.compute.amazonaws.com',
+        'NAME': 'd4nd0elbp0kjjm',
+        'USER': 'zjavgsqhlgvrlh',
+        'PASSWORD':'6a8f2b2edc99d7a521a604c36a97a45487de389afad4b77031ae073e0a965994',
+        'HOST':'ec2-54-228-30-162.eu-west-1.compute.amazonaws.com',
         'PORT':'5432',
-
     }
 }
 
