@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users.views import *
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('api/v1/industries/', IndustriesApiList.as_view()),
     path('api/v1/locates/<str:string>/', LocateApiList.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

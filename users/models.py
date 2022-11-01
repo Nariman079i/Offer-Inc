@@ -1,7 +1,7 @@
 
 from django.db.models import *
 from .admin import *
-from django.contrib.auth.models import AbstractUser
+
 
 
 # class Experience(Model):
@@ -108,7 +108,7 @@ class Industry(Model):
         verbose_name_plural = "Индустрии"
 
 
-admin.site.register(Industry)
+#admin.site.register(Industry)
 
 
 class Region(Model):
@@ -122,7 +122,7 @@ class Region(Model):
         verbose_name_plural = "Регионы"
 
 
-admin.site.register(Region)
+#admin.site.register(Region)
 
 
 class Locate(Model):
@@ -138,7 +138,7 @@ class Locate(Model):
         verbose_name_plural = "Локации"
 
 
-admin.site.register(Locate)
+#admin.site.register(Locate)
 
 
 # class UserLink(Model):
